@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.task-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-column {
+    width: 45%;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.task-item span {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.task-item .completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.right-image {
+    float: right;
+    width: 800px; /* 이미지의 크기를 적절히 조정하세요 */
+    height: auto;
+    margin-left: 20px; /* 텍스트와 이미지 사이의 간격 조정 */
+}
+
+/* 이미지가 너무 커지지 않도록 텍스트 컨테이너의 너비를 줄입니다 */
+.task-container {
+    width: 60%; /* 전체 너비의 60%만 사용 */
+}
+
+.right-image {
+    width: 35%; /* 이미지의 너비를 35%로 조정 */
+    height: auto;
+}

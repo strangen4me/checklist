@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일일 체크리스트</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>일일 체크리스트</h1>
+        <!-- 이미지 추가 -->
+        <img src="C:\Users\ohall\Desktop\icms\cld.jpg" alt="설명" class="right-image">
+        <div class="task-container">
+            <div class="task-column">
+                <h2>Month</h2>
+                <input type="text" v-model="newMonthTask" placeholder="할 일 입력">
+                <input type="date" v-model="deadlineDateMonth">
+                <button @click="addTask('month')">추가</button>
+                <div v-for="(task, index) in monthTasks" :key="index" class="task-item">
+                    <input type="checkbox" v-model="task.completed">
+                    <i class="fas fa-check-circle"></i>
+                    <span :class="{ completed: task.completed }">{{ task.name }}</span>
+                    <span v-if="task.deadline">마감일: {{ task.deadline }}</span>
+                    <button @click="deleteTask(index, 'month')"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            </div>
+            <div class="task-column">
+                <h2>Week</h2>
+                <input type="text" v-model="newWeekTask" placeholder="할 일 입력">
+                <input type="date" v-model="deadlineDateWeek">
+                <button @click="addTask('week')">추가</button>
+                <div v-for="(task, index) in weekTasks" :key="index" class="task-item">
+                    <input type="checkbox" v-model="task.completed">
+                    <i class="fas fa-check-circle"></i>
+                    <span :class="{ completed: task.completed }">{{ task.name }}</span>
+                    <span v-if="task.deadline">마감일: {{ task.deadline }}</span>
+                    <button @click="deleteTask(index, 'week')"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            </div>
+            <div class="task-column">
+                <h2>Day</h2>
+                <input type="text" v-model="newDayTask" placeholder="할 일 입력">
+                <input type="date" v-model="deadlineDateDay">
+                <button @click="addTask('day')">추가</button>
+                <div v-for="(task, index) in dayTasks" :key="index" class="task-item">
+                    <input type="checkbox" v-model="task.completed">
+                    <i class="fas fa-check-circle"></i>
+                    <span :class="{ completed: task.completed }">{{ task.name }}</span>
+                    <span v-if="task.deadline">마감일: {{ task.deadline }}</span>
+                    <button @click="deleteTask(index, 'day')"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            </div>
+        </div>
+        <button @click="clearCompleted">완료된 항목 삭제</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
